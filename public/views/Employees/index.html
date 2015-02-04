@@ -1,11 +1,42 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-24">
+            <h1>Add/Edit Employee</h1>
+            <form ng-submit="addEmployee()">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Designation</th>
+                            <th>Allowed Leave</th>
+                            <th>Used Leave</th>
+                            <th>Remaining Leave</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="hidden" ng-model="form.id" value="0" />
+                            <input type="text" ng-model="form.name" size="20" /></td>
+                            <td><input type="text" ng-model="form.designation" size="20" /></td>
+                            <td><input type="text" ng-model="form.allowed" size="20" /></td>
+                            <td><input type="text" ng-model="form.used" size="20" /></td>
+                            <td><input type="text" ng-model="form.remaining" size="20" /></td>
+                            <td><input type="submit" value="Add Employee" /></td>
+                        </tr>
+                    </tbody>
+                </table>                
+            </form>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-24">
             <h2>
                 <a href="/employees/create" class="btn btn-primary pull-right">Add New Employee</a>
-                Employee List
-            
+                Employee List            
             </h2>
+
             <table class="table">
                 <thead>
                     <tr>
@@ -26,7 +57,7 @@
                         <td>{{employee.allowed}}</td>
                         <td>{{employee.used}}</td>
                         <td>{{employee.remaining}}</td>
-                        <td>( <a ng-click="removeEmployee( employee )">delete</a> )</td>
+                        <td>( <a ng-click="removeEmployee(employee)">delete</a> )</td>
                     </tr>
                 </tbody>
             </table>

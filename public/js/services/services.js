@@ -18,17 +18,16 @@ app.service(
 
 
             // I add a employee with the given name to the remote collection.
-            function addEmployee(name) {
+            function addEmployee(data) {
+                console.log(data);
 
                 var request = $http({
                     method: "post",
-                    url: "api/index.cfm",
-                    params: {
-                        action: "add"
-                    },
-                    data: {
-                        name: name
-                    }
+                    url: "http://localhost:8000/employees/",
+//                    params: {
+//                        action: "add"
+//                    },
+                    data: data
                 });
 
                 return(request.then(handleSuccess, handleError));

@@ -2,7 +2,15 @@
     <div class="row">
         <div class="col-md-24">
             <h1>Add/Edit Employee</h1>
-            
+            <form ng-submit="addEmployee()">
+                <input type="text" ng-model="form.name" size="20" />
+                <input type="text" ng-model="form.designation" size="20" />
+                <input type="text" ng-model="form.allowed" size="20" />
+                <input type="text" ng-model="form.used" size="20" />
+                <input type="text" ng-model="form.remaining" size="20" />                
+                <input type="submit" value="Add Employee" />
+
+            </form>
         </div>
     </div>
 </div>

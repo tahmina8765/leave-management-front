@@ -23,7 +23,7 @@ app.controller('EmployeesController', function ($scope, employeeService) {
         // at which point we can tell the user that something went wrong. In
         // this case, I'm just logging to the console to keep things very
         // simple for the demo.
-        employeeService.addEmployee($scope.form.name)
+        employeeService.addEmployee($scope.form)
                 .then(
                         loadRemoteData,
                         function (errorMessage) {
@@ -35,7 +35,7 @@ app.controller('EmployeesController', function ($scope, employeeService) {
                 ;
 
         // Reset the form once values have been consumed.
-        $scope.form.name = "";
+        //$scope.form.name = "";
 
     };
 
