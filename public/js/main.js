@@ -11,5 +11,5 @@ require.config({
         }
     },
     // kick start application
-    deps: ['./bootstrap']
+    deps: ['']
 });

@@ -1,3 +1,4 @@
+'use strict';
 // I act a repository for the remote employee collection.
 app.service(
         "employeeService",
@@ -39,7 +40,7 @@ app.service(
             function getEmployees() {
                 var request = $http({
                     method: "get",
-                    url: "http://localhost/phpjson/",
+                    url: "http://localhost:8000/employees/",
                     params: {
                         action: "get"
                     }
@@ -55,13 +56,13 @@ app.service(
 
                 var request = $http({
                     method: "delete",
-                    url: "api/index.cfm",
-                    params: {
-                        action: "delete"
-                    },
-                    data: {
-                        id: id
-                    }
+                    url: "http://localhost:8000/employees/"+id,
+//                    params: {
+//                        action: "delete"
+//                    },
+//                    data: {
+//                        id: id
+//                    }
                 });
 
                 return(request.then(handleSuccess, handleError));

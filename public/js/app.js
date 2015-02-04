@@ -1,4 +1,9 @@
+'use strict';
 var app = angular.module("Gw2App", ['ngRoute']);
+app.constant("myConfig", {
+        "url": "http://localhost",
+        "port": "8000"
+    })
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
             .when('/', {
@@ -9,15 +14,15 @@ app.config(function ($routeProvider, $locationProvider) {
                 controller: 'EmployeesController',
                 templateUrl: 'views/employees/index.html'
             })
-            .when('/employee/save', {
+            .when('/employees/create', {
+                controller: 'EmployeesController',
+                templateUrl: 'views/employees/create.html'
+            })
+            .when('/employees/save/:id', {
                 controller: 'EmployeesController',
                 templateUrl: 'views/employees/save.html'
             })
-            .when('/employee/save/:id', {
-                controller: 'EmployeesController',
-                templateUrl: 'views/employees/save.html'
-            })
-            .when('/employee/view/:id', {
+            .when('/employees/view/:id', {
                 controller: 'EmployeesController',
                 templateUrl: 'views/employees/view.html'
             })

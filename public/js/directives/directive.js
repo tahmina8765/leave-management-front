@@ -1,3 +1,4 @@
+'use strict';
 app
         .directive('topMenu', function () {
             return {

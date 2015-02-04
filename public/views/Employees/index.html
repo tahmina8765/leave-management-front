@@ -1,7 +1,11 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-24">
-            <h2>Employee List</h2>
+            <h2>
+                <a href="/employees/create" class="btn btn-primary pull-right">Add New Employee</a>
+                Employee List
+            
+            </h2>
             <table class="table">
                 <thead>
                     <tr>
@@ -11,16 +15,18 @@
                         <th>Allowed Leave</th>
                         <th>Used Leave</th>
                         <th>Remaining Leave</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="(key, value) in employees">
-                        <td>{{value.id}}</td>
-                        <td>{{value.name}}</td>
-                        <td>{{value.designation}}</td>
-                        <td>{{value.allowed}}</td>
-                        <td>{{value.used}}</td>
-                        <td>{{value.remaining}}</td>
+                    <tr ng-repeat="(key, employee) in employees">
+                        <td>{{employee.id}}</td>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.designation}}</td>
+                        <td>{{employee.allowed}}</td>
+                        <td>{{employee.used}}</td>
+                        <td>{{employee.remaining}}</td>
+                        <td>( <a ng-click="removeEmployee( employee )">delete</a> )</td>
                     </tr>
                 </tbody>
             </table>

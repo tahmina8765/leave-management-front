@@ -1,3 +1,4 @@
+'use strict';
 app.controller('EmployeesController', function ($scope, employeeService) {
     // I contain the list of employees to be rendered.
     $scope.employees = [];
@@ -58,25 +59,18 @@ app.controller('EmployeesController', function ($scope, employeeService) {
 
     // I apply the remote data to the local scope.
     function applyRemoteData(newEmployees) {
-
         $scope.employees = newEmployees;
-
     }
 
 
     // I load the remote data from the server.
     function loadRemoteData() {
-
         // The employeeService returns a promise.
-        employeeService.getEmployees()
-                .then(
-                        function (employees) {
-
-                            applyRemoteData(employees);
-
-                        }
-                )
-                ;
+        employeeService.getEmployees().then(
+                function (employees) {
+                    applyRemoteData(employees);
+                }
+        );
 
     }
 
