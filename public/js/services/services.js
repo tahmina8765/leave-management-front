@@ -6,7 +6,9 @@ app.service(
 
             // Return public API.
             return({
-                addEmployee: addEmployee,
+                addEmployee: storeEmployee,
+                editEmployee: editEmployee,
+                updateEmployee: updateEmployee,
                 getEmployees: getEmployees,
                 removeEmployee: removeEmployee
             });
@@ -17,25 +19,34 @@ app.service(
             // ---
 
 
-            // I add a employee with the given name to the remote collection.
-            function addEmployee(data) {
-                console.log(data);
-
+            function storeEmployee(data) {
                 var request = $http({
                     method: "post",
                     url: "http://localhost:8000/employees/",
-//                    params: {
-//                        action: "add"
-//                    },
                     data: data
+                });
+                return(request.then(handleSuccess, handleError));
+            }
+            function editEmployee(id) {
+
+                var request = $http({
+                    method: "get",
+                    url: "http://localhost:8000/employees/"+id+"/edit",
                 });
 
                 return(request.then(handleSuccess, handleError));
 
             }
+            function updateEmployee(data) {
+                var request = $http({
+                    method: "put",
+                    url: "http://localhost:8000/employees/",
+                    data: data
+                });
+                return(request.then(handleSuccess, handleError));
+            }
 
 
-            // I get all of the employees in the remote collection.
             function getEmployees() {
                 var request = $http({
                     method: "get",
@@ -50,7 +61,7 @@ app.service(
             }
 
 
-            // I remove the employee with the given ID from the remote collection.
+
             function removeEmployee(id) {
 
                 var request = $http({
