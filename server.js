@@ -1,11 +1,13 @@
 var express = require('express'),
-        app = express();
+        app = express(),
+port = 3000;
 
 app
         .use(express.static('./public'))
-        .get('*', function(req, res) {
+        .get('*', function (req, res) {
             res.sendFile(__dirname + '/public/index.html');
         })
-        .listen(3000);
-console.log('Server running at http://127.0.0.1:3000/');
-console.log('To stop server press ctrl+c');
+        .listen(port, function () {
+            console.log('Server running at http://127.0.0.1:/'+port);
+            console.log('To stop server press ctrl+c');
+        });

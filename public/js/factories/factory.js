@@ -46,6 +46,10 @@ app
                         $http.get(baseUrl + '/me').success(success).error(error)
                     },
                     logout: function (success) {
+                        console.log($localStorage);
+                        $localStorage.token = 2;
+                        console.log($localStorage);
+                        alert('mai');
                         changeUser({});
                         delete $localStorage.token;
                         success();
