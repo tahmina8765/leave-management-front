@@ -3,7 +3,7 @@
 app
         .factory('Main', ['$http', '$localStorage', function ($http, $localStorage) {
                 // var baseUrl = "http://angular-restful-auth.herokuapp.com";
-                var baseUrl = "http://localhost:8001";
+                var baseUrl = "http://localhost:3001";
                 function changeUser(user) {
                     angular.extend(currentUser, user);
                 }
@@ -46,10 +46,6 @@ app
                         $http.get(baseUrl + '/me').success(success).error(error)
                     },
                     logout: function (success) {
-                        console.log($localStorage);
-                        $localStorage.token = 2;
-                        console.log($localStorage);
-                        alert('mai');
                         changeUser({});
                         delete $localStorage.token;
                         success();
